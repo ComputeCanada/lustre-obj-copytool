@@ -162,11 +162,5 @@ static int ct_restore_data(struct hsm_copyaction_private *hcp, const char *src,
                            const char *dst, int dst_fd,
                            const struct hsm_action_item *hai, long hal_flags);
 
-int ct_archive(const struct hsm_action_item *hai, const long hal_flags);
-
-int ct_restore(const struct hsm_action_item *hai, const long hal_flags);
-
-int ct_remove(const struct hsm_action_item *hai, const long hal_flags);
-
 static int ct_s3_cleanup(void);
 

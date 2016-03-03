@@ -1,6 +1,6 @@
 #CFLAGS = --pedantic -Wall
 #LDFLAGS =
-AM_CFLAGS = -I@LDIR@/libcfs/include -I@LDIR@/lustre/include -I@LDIR@/lnet/include
+AM_CFLAGS = -Wall -I@LDIR@/libcfs/include -I@LDIR@/lustre/include -I@LDIR@/lnet/include
 
 noinst_LIBRARIES = libct.a
 libct_a_SOURCES = ct_common.c ct_common.h

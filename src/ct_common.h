@@ -64,7 +64,7 @@ char fs_name[MAX_OBD_NAME + 1];
 
 int chunk_size;
 static int err_major;
-static int err_minor;
+//static int err_minor;
 
 #define CT_ERROR(_rc, _format, ...)                 \
     llapi_error(LLAPI_MSG_ERROR, _rc,               \
@@ -126,6 +126,17 @@ typedef struct strippingInfo
  * for us. This is to make sure it doesn't drop out from under us (and
  * remind the admin to shutdown the copytool before unmounting). */
 struct hsm_copytool_private *ctdata;
+
+
+/*
+ * ct_archive, ct_restore, ct_remove & ct_cancel are declared here but must be defined
+ * by the implemented by the user of libct as they are specific to a
+ * given archival platform.
+ */
+int ct_archive(const struct hsm_action_item *hai, const long hal_flags);
+int ct_restore(const struct hsm_action_item *hai, const long hal_flags);
+int ct_remove(const struct hsm_action_item *hai, const long hal_flags);
+int ct_cancel(const struct hsm_action_item *hai, const long hal_flags);
 
 int should_retry(int *retry_count);
 

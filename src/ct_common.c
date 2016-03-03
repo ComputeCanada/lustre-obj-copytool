@@ -292,19 +292,12 @@ int ct_process_item(struct hsm_action_item *hai, const long hal_flags)
         rc = ct_remove(hai, hal_flags);
         break;
     case HSMA_CANCEL:
-        CT_TRACE("cancel not implemented for file system '%s'",
-                 ct_opt.o_mnt);
-        /* Don't report progress to coordinator for this cookie:
-         * the copy function will get ECANCELED when reporting
-         * progress. */
-        err_minor++;
-        return 0;
+        rc = ct_cancel(hai, hal_flags);
         break;
     default:
         rc = -EINVAL;
         CT_ERROR(rc, "unknown action %d, on '%s'", hai->hai_action,
                  ct_opt.o_mnt);
-        err_minor++;
         ct_action_done(NULL, hai, 0, rc);
     }
 

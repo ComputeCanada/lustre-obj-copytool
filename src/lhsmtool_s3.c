@@ -1226,6 +1226,15 @@ end_ct_remove:
     return rc;
 }
 
+int ct_cancel(const struct hsm_action_item *hai, const long hal_flags)
+{
+    CT_TRACE("cancel not implemented for file system '%s'", ct_opt.o_mnt);
+    /* Don't report progress to coordinator for this cookie:
+     * the copy function will get ECANCELED when reporting
+     * progress. */
+    return 0;
+}
+
 static int ct_s3_cleanup(void)
 {
     int rc = 0;
