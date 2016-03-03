@@ -1,0 +1,5 @@
+cluster_name = "ceph";
+user_name = "client.admin";
+pool_name = "hsm";
+config_file = "/etc/ceph/ceph.conf";
+chunk_size = 4194304;

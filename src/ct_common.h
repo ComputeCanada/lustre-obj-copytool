@@ -48,6 +48,8 @@
 // number of ascii characters needed to represent the size of a big file
 #define TOTALLENGTH 24
 
+#define MD5_ASCII 32+1
+
 /* HSM hash subdir permissions */
 #define DIR_PERM S_IRWXU
 /* HSM hash file permissions */
