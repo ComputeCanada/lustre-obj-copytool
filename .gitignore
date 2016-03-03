@@ -1,0 +1,16 @@
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+config.cfg
+config.log
+config.status
+configure
+depcomp
+install-sh
+missing
+src/.deps/
+src/copytoolRados
+src/copytoolS3
+src/*.o
+src/*.a
