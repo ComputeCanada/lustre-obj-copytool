@@ -422,6 +422,14 @@ static int ct_archive_data(struct hsm_copyaction_private *hcp, const char *src,
             goto out;
         }
 
+        const char compression_algo[] = "lz4";
+        rc = rados_setxattr(io, dst_chunk_s, "compression", compression_algo,
+            sizeof(compression_algo));
+        if (rc < 0) {
+            CT_ERROR(rc, "rados_setxattr error for compression");
+            goto out;
+        }
+
         if(chunk_id == 0){
             // store some metadata on the first object
             char totallength_s[TOTALLENGTH];

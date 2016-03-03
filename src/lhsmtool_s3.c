@@ -588,7 +588,8 @@ static int ct_archive_data(struct hsm_copyaction_private *hcp, const char *src,
 
     S3PutProperties putProperties =
     {
-        NULL, // contentType
+        // application/x-lz4 does not officially exist
+        "application/x-lz4", // contentType
         NULL, // md5
         NULL, // cacheControl
         NULL, // contentDispositionFilename
