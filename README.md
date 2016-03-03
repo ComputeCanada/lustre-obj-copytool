@@ -21,9 +21,24 @@ $ cd libs3
 $ patch -p1 < ~/lustre-s3-copytool/patches/libs3_low_speed_limit.patch
 ```
 
+Building the copytool
+---------------------
+After downloading the sources from the git repository, the autotools must be
+run to prepare the build environment :
+    aclocal
+    automake --add-missing
+    autoconf
+
+The build can then be configured with the `configure` script.  The location
+of the lustre source tree to compile against must be specified as well as 
+the type of object interfaces to enable :
+    ./configure --with-lustre=<location of lustre sources> --enable-s3
+
+After running `make`, the binary of the copytool will be in ./src/
+
 Configuration
 -------------
-### lustre-s3-copytool
+### copytoolS3
 A basic configuration is available in config.cfg.dist, this file can be copied
 as config.cfg. The path of the config file can also be passed as a runtime
 parameter.
@@ -61,7 +76,7 @@ Enable HSM on the MDS server
 Start the copytool on a DTN node
 
 ```
-# ./copytool_d /lustre/
+# ./copytoolS3 /lustre/
 1456506103.926649 copytool_d[31507]: mount_point=/lustre/
 1456506103.932785 copytool_d[31507]: waiting for message from kernel
 ```
