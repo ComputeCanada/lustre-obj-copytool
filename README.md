@@ -25,14 +25,18 @@ Building the copytool
 ---------------------
 After downloading the sources from the git repository, the autotools must be
 run to prepare the build environment :
-    aclocal
-    automake --add-missing
-    autoconf
+```
+$ aclocal
+$ automake --add-missing
+$ autoconf
+```
 
 The build can then be configured with the `configure` script.  The location
 of the lustre source tree to compile against must be specified as well as 
 the type of object interfaces to enable :
-    ./configure --with-lustre=<location of lustre sources> --enable-s3
+```
+$ ./configure --with-lustre=<location of lustre sources> --enable-s3
+```
 
 After running `make`, the binary of the copytool will be in ./src/
 
