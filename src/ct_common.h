@@ -39,7 +39,7 @@
 
 #include <errno.h>
 #include <sys/syscall.h>
-#include <libcfs/util/string.h>
+#include <string.h>
 #include <lustre/lustre_idl.h>
 #include <lustre/lustreapi.h>
 

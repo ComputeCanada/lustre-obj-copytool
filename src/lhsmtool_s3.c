@@ -59,14 +59,12 @@
 #include <sys/syscall.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <libcfs/util/string.h>
-#include <lustre/lustre_idl.h>
-#include <lustre/lustreapi.h>
 #include <libconfig.h>
 #include <libs3.h>
 #include <lz4.h>
 #include <assert.h>
 #include <openssl/md5.h>
+#include <libcfs/util/string.h> /* To get strlcpy */
 
 /* everything else is zeroed */
 //struct ct_s3_options ct_s3_opt = {

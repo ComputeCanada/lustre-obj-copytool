@@ -59,13 +59,11 @@
 #include <sys/syscall.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <libcfs/util/string.h>
-#include <lustre/lustre_idl.h>
-#include <lustre/lustreapi.h>
 #include <libconfig.h>
 #include <rados/librados.h>
 #include <lz4.h>
 #include <openssl/md5.h>
+#include <libcfs/util/string.h> /* To get strlcpy */
 
 extern struct ct_options ct_opt;
 

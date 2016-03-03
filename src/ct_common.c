@@ -46,6 +46,7 @@
 #include <pthread.h>
 #include <signal.h>
 #include <assert.h>
+#include <sys/xattr.h>
 
 /* everything else is zeroed */
 struct ct_options ct_opt = {

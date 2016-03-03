@@ -40,7 +40,7 @@
 #endif
 
 #include <errno.h>
-#include <libcfs/util/string.h>
+#include <string.h>
 #include <lustre/lustre_idl.h>
 #include <lustre/lustreapi.h>
 #include <rados/librados.h>
