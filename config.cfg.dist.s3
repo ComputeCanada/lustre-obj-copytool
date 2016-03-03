@@ -1,0 +1,7 @@
+access_key = "";
+secret_key = "";
+host = "localhost:80";
+bucket_prefix = "lustre_hsm";
+bucket_count = 8;
+chunk_size = 104857600;
+ssl = false
