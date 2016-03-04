@@ -22,8 +22,8 @@
 /*
  * Copyright (c) 2015, 2016, Universite Laval
  * Authors: Simon Guilbault, Frederick Lefebvre
- *          
- * 
+ *
+ *
  * Part of this file include code from file lhsmtool_posix.c (licensed under
  * a GPLv2 license) that can be found in Lustre's git repository here :
  * git://git.hpdd.intel.com/fs/lustre-release.git
@@ -660,7 +660,7 @@ static int ct_archive_data(struct hsm_copyaction_private *hcp, const char *src,
         memcpy(&localbucketContext, &bucketContext, sizeof(S3BucketContext));
         localbucketContext.bucketName = bucket_name;
 
-        time_t before_s3_put = time(NULL);
+        double before_s3_put = ct_now();
         int retry_count = RETRYCOUNT;
         do {
             S3_put_object(&localbucketContext, dst_chunk_s, compressed_size, &putProperties, NULL, &putObjectHandler, &data);
@@ -851,7 +851,7 @@ static int ct_restore_data(struct hsm_copyaction_private *hcp, const char *src,
                 CT_TRACE("Decompressing a chunk from %s of %llu bytes took %fs and the uncompressed size is %i bytes",
                     src, data.contentLength, ct_now() - before_decompression, decompressed_size);
 
-                time_t before_lustre_write = time(NULL);
+                double before_lustre_write = ct_now();
                 pwrite(dst_fd, uncompress_buf, decompressed_size, file_offset);
                 CT_TRACE("Writing a chunk from %s of %llu bytes offset %llu to lustre took %fs",
                     src_chunk_s, object_chunk_size, file_offset, ct_now() - before_lustre_write);
