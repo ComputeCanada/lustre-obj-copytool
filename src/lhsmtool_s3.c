@@ -235,7 +235,7 @@ static int get_s3_object(char *objectName,
        return -ENOMEM;
     }
     if (data->status != S3StatusOK) {
-        CT_ERROR(-EIO, "S3 error number %i", data->status);
+        CT_ERROR(-EIO, "S3Error %s", S3_get_status_name(data->status));
         return -EIO;
     }
 
@@ -670,7 +670,7 @@ static int ct_archive_data(struct hsm_copyaction_private *hcp, const char *src,
 
         if (data.status != S3StatusOK) {
             rc = -EIO;
-            CT_ERROR(rc, "S3 Error");
+            CT_ERROR(rc, "S3Error %s", S3_get_status_name(data.status));
             goto out;
         }
 
@@ -732,7 +732,7 @@ static int ct_archive_data(struct hsm_copyaction_private *hcp, const char *src,
 
         if (head_data.status != S3StatusOK) {
             rc = -EIO;
-            CT_ERROR(rc, "S3 Error number %i", head_data.status);
+            CT_ERROR(rc, "S3Error %s", S3_get_status_name(head_data.status));
             goto out;
         }
 
@@ -744,7 +744,7 @@ static int ct_archive_data(struct hsm_copyaction_private *hcp, const char *src,
 
         if (delete_data.status != S3StatusOK) {
             rc = -EIO;
-            CT_ERROR(rc, "S3 Error number %i", delete_data.status);
+            CT_ERROR(rc, "S3Error %s", S3_get_status_name(delete_data.status));
             goto out;
         }
 
@@ -901,7 +901,7 @@ static int ct_restore_data(struct hsm_copyaction_private *hcp, const char *src,
 
                 if (data.status != S3StatusOK) {
                     rc = -EIO;
-                    CT_ERROR(rc, "S3 Error number %i", data.status);
+                    CT_ERROR(rc, "S3Error %s", S3_get_status_name(data.status));
                     goto out;
                 }
                 object_chunk_size = data.chunk_size;
@@ -1186,7 +1186,7 @@ int ct_remove(const struct hsm_action_item *hai, const long hal_flags)
 
     if (data.status != S3StatusOK) {
         rc = -EIO;
-        CT_ERROR(rc, "S3 Error number %i", data.status);
+        CT_ERROR(rc, "S3Error %s", S3_get_status_name(data.status));
         goto end_ct_remove;
     }
 
@@ -1213,7 +1213,7 @@ int ct_remove(const struct hsm_action_item *hai, const long hal_flags)
 
         if (delete_data.status != S3StatusOK) {
             rc = -EIO;
-            CT_ERROR(rc, "S3 Error number %i", delete_data.status);
+            CT_ERROR(rc, "S3Error %s", S3_get_status_name(delete_data.status));
             goto end_ct_remove;
         }
     }
