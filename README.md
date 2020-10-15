@@ -1,5 +1,7 @@
 lustre-s3-copytool
 ==================
+A fork of this tool, called [Estuary](https://git.ichec.ie/performance/storage/estuary) is now available for a better S3 support. Estuary is preferred for new deployment.
+
 Features
 --------
 
